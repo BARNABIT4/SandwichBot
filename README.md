@@ -6,7 +6,7 @@ NodeJS version 6+ is ***REQUIRED***. [Installing Node.js](https://nodejs.org/en/
 
 [> Check this video to see how it works!](https://my.mixtape.moe/pwcrem.webm)
 
-### My own custom fork of kuro bot. Has custom commands, and the old way of doing stickers as im not a fan of the new way
+### My own custom fork of kuro bot. Has custom commands, and the old way of doing stickers as im not a fan of the new way. this is more for my own personal use but feel free to use it if you want
 
 So if you are upgrading to a new version, please run `!s migrate` to migrate your stickers to the new embed system.
 
