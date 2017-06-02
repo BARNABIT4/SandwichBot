@@ -36,7 +36,7 @@ exports.run = function(msg, args) {
 					inline: true
 				},
 				{
-					name: 'Guild Join Date',
+					name: 'Server Join Date',
 					value: user.joinedAt.toLocaleDateString(),
 					inline: true
 				},

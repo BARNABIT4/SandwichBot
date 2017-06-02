@@ -1,20 +1,20 @@
 exports.run = function(msg) {
 	msg.delete()
-	msg.channel.send('👀').then(msg => {
+	msg.channel.send('<:eyest:284133093487411212>').then(msg => {
 		setTimeout(() => {
-			msg.edit('<:eyes2:248874616142036992>').then(msg => {
+			msg.edit('<:eyesFlipped:285640247700750337>').then(msg => {
 				setTimeout(() => {
-					msg.edit('👀').then(msg => {
+					msg.edit('<:eyest:284133093487411212>').then(msg => {
 						setTimeout(() => {
-							msg.edit('<:eyes2:248874616142036992>').then(msg => {
+							msg.edit('<:eyesFlipped:285640247700750337>').then(msg => {
 								setTimeout(() => {
-									msg.edit('👀').then(msg => {
+									msg.edit('<:eyest:284133093487411212>').then(msg => {
 										setTimeout(() => {
-											msg.edit('<:eyes2:248874616142036992>').then(msg => {
+											msg.edit('<:eyesFlipped:285640247700750337>').then(msg => {
 												setTimeout(() => {
-													msg.edit('👀').then(msg => {
+													msg.edit('<:eyest:284133093487411212>').then(msg => {
 														setTimeout(() => {
-															msg.edit('<:eyes2:248874616142036992>')
+															msg.edit('<:eyesFlipped:285640247700750337>')
 														}, 500)
 													})
 												}, 500)

@@ -4,7 +4,7 @@ exports.init = function(bot) { kuro = bot }
 exports.run = function(msg) {
 	let pjson = require('../package.json')
 
-	let version = `v${pjson.version.toString()}`
+	let version = `${pjson.version.toString()}`
 	let uptime = secondsToString(process.uptime()).toString()
 	let modules = Object.keys(kuro.modules).length.toString()
 	let memory = `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB`
@@ -16,7 +16,7 @@ exports.run = function(msg) {
 	msg.edit('', {
 		embed: {
 			type: 'rich',
-			description: '[Kurobot Stats](https://github.com/kanadeko/Kuro)',
+			description: '[SandwichBot Stats](https://github.com/kanadeko/Kuro)',
 			color: kuro.config.embedColor,
 			fields: [
 				{ name: '❯ Version', value: version, inline: true },
@@ -25,7 +25,7 @@ exports.run = function(msg) {
 				{ name: '❯ Stickers', value: stickers, inline: true },
 				{ name: '❯ Tags', value: tags, inline: true }
 			],
-			thumbnail: { url: 'https://i.imgur.com/sVVcwJd.png' },
+			thumbnail: { url: 'http://i.imgur.com/0tPwgV7.gif' },
 			footer: { text: `Uptime: ${uptime}` }
 		}
 	})
