@@ -27,6 +27,6 @@ exports.run = function(msg) {
 					})
 				}, 350)
 			})
-		}, 350)
+		}, 500)
 	})
 }
