@@ -4,7 +4,7 @@ exports.init = function(bot) { kuro = bot }
 exports.run = function(msg) {
 	let pjson = require('../package.json')
 
-	let version = `${pjson.version.toString()}`
+	let version = `Wouldnt you like to know`
 	let uptime = secondsToString(process.uptime()).toString()
 	let modules = Object.keys(kuro.modules).length.toString()
 	let memory = `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB`
