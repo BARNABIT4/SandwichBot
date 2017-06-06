@@ -16,7 +16,7 @@ exports.run = function(msg) {
 	msg.edit('', {
 		embed: {
 			type: 'rich',
-			description: '[SandwichBot Stats](https://github.com/kanadeko/Kuro)',
+			description: '[SandwichBot Stats](https://github.com/pbanj/SandwichBot)',
 			color: kuro.config.embedColor,
 			fields: [
 				{ name: '❯ Version', value: version, inline: true },
