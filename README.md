@@ -1,12 +1,13 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/kanadeko/Kuro/master/LICENSE)
 
 
-Kuro is an easy to use self bot that is shifting more and more into a framework while preserving its ease of use. It sits on top of [discord.js](https://github.com/hydrabolt/discord.js/).
+### My own custom fork of kuro bot. Has custom commands, and the old way of doing stickers as im not a fan of the new way. this is more for my own personal use but feel free to use it if you want
+
+an easy to use self bot that is shifting more and more into a framework while preserving its ease of use. It sits on top of [discord.js](https://github.com/hydrabolt/discord.js/).
 NodeJS version 6+ is ***REQUIRED***. [Installing Node.js](https://nodejs.org/en/download/package-manager/)
 
 [> Check this video to see how it works!](https://my.mixtape.moe/pwcrem.webm)
 
-### My own custom fork of kuro bot. Has custom commands, and the old way of doing stickers as im not a fan of the new way. this is more for my own personal use but feel free to use it if you want
 
 ## Installing:
 clone the repo, `npm install`, rename the `config.sample.json` to `config.json` and modify it's values with your data.
