@@ -13,7 +13,7 @@ NodeJS version 6+ is ***REQUIRED***. [Installing Node.js](https://nodejs.org/en/
 
 
 ## Installing:
-clone the repo, `npm install` inside your `kuro` folder, rename the `config.sample.json` to `config.json` and modify it's values with your data.
+clone the repo, `npm install` inside your `SandwichBot` folder, rename the `config.sample.json` to `config.json` and modify it's values with your data.
 
 ## Modules:
 This new update brings every command in the form of separate modules. Inside each module you can make up the stuff you want, and you can execute it by calling the module name without the extension. There's a sample module ready for you to duplicate called `base.js`.
