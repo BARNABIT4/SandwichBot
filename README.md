@@ -1,5 +1,8 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/kanadeko/Kuro/master/LICENSE)
 
+![heeeey](http://i.imgur.com/0tPwgV7.gif)
+
+
 
 ### My own custom fork of kuro bot. Has custom commands, and the old way of doing stickers as im not a fan of the new way. this is more for my own personal use but feel free to use it if you want
 
