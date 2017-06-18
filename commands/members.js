@@ -1,5 +1,5 @@
-let pbot
-exports.init = function(bot) { pbot = bot }
+let kuro
+exports.init = function(bot) { kuro = bot }
 
 exports.run = function(msg) {
 	msg.delete()
@@ -7,7 +7,7 @@ exports.run = function(msg) {
 		embed: {
 			title: msg.guild.name,
 			description: `Member Count: ${msg.guild.memberCount}`,
-			color: pbot.config.embedColor
+			color: kuro.config.embedColor
 		}
 	})
 }

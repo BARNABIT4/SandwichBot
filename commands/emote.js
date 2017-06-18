@@ -1,13 +1,13 @@
-let pbot
-exports.init = function(bot) { pbot = bot }
+let kuro
+exports.init = function(bot) { kuro = bot }
 
 exports.run = function(msg, args) {
 	if (args[0] === undefined) return msg.delete()
-	if (!args[0].startsWith('<:')) return pbot.edit(msg, 'Not a valid emote')
+	if (!args[0].startsWith('<:')) return kuro.edit(msg, 'Not a valid emote')
 
 	let id = args[0].substring(args[0].lastIndexOf(':') + 1, args[0].lastIndexOf('>'))
-	let emoteInfo = pbot.emojis.get(id)
-	if (!emoteInfo) return pbot.edit(msg, 'No emote with that id')
+	let emoteInfo = kuro.emojis.get(id)
+	if (!emoteInfo) return kuro.edit(msg, 'No emote with that id')
 
 	return msg.edit({
 		embed: {
