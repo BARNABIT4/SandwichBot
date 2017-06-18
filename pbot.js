@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 if (!fs.existsSync(path.join(__dirname, 'config.json'))) {
-	console.log('config.json file not found, please run kuro-cli or create it on your own')
+	console.log('config.json file not found, please run pbot-cli or create it on your own')
 	process.exit()
 }
 
@@ -19,26 +19,26 @@ let filesDirectory = path.join(__dirname, 'files')
 fs.existsSync(filesDirectory) || fs.mkdirSync(filesDirectory)
 
 // Initializing the ultimate tan
-const kuro = new Discord.Client()
+const pbot = new Discord.Client()
 
 // When ready
-kuro.on('ready', () => {
+pbot.on('ready', () => {
 	// Create database if it doesn't exist
 	fs.exists('db', (exists) => exists || fs.writeFile('db', ''))
 
 	// Getting the database ready
-	kuro.db = knex
+	pbot.db = knex
 
 	// Making config available on every module
-	kuro.config = config
-	kuro.loadCommands()
-	kuro.user.setAFK(true)
-	kuro.log('Kuro is ready!', 'green')
+	pbot.config = config
+	pbot.loadCommands()
+	pbot.user.setAFK(true)
+	pbot.log('pbot is ready!', 'green')
 })
 
-kuro.on('message', (msg) => {
+pbot.on('message', (msg) => {
 	// Ignore if the message is not ours
-	if (msg.author.id !== kuro.user.id) return
+	if (msg.author.id !== pbot.user.id) return
 
 	// Ignore if the message doesn't start with our prefix
 	if (!msg.content.startsWith(config.prefix)) return
@@ -57,23 +57,23 @@ kuro.on('message', (msg) => {
 	// Store the command separately
 	let cmd = tmp[0]
 
-	if (kuro.modules.hasOwnProperty(cmd)) return kuro.modules[cmd].run(msg, args)
+	if (pbot.modules.hasOwnProperty(cmd)) return pbot.modules[cmd].run(msg, args)
 	if (config.commandError.sendToModule === true) {
-		return kuro.modules[config.commandError.module][config.commandError.function](msg, cmd)
+		return pbot.modules[config.commandError.module][config.commandError.function](msg, cmd)
 	}
 
 	return msg.delete()
 })
 
-kuro.on('disconnect', () => {
-	kuro.error('CLIENT: Disconnected!')
+pbot.on('disconnect', () => {
+	pbot.error('CLIENT: Disconnected!')
 	process.exit()
 })
 
-kuro.on('reconnecting', () => { kuro.log('CLIENT: Reconnecting...', 'green') })
+pbot.on('reconnecting', () => { pbot.log('CLIENT: Reconnecting...', 'green') })
 
-kuro.loadCommands = function() {
-	kuro.modules = {}
+pbot.loadCommands = function() {
+	pbot.modules = {}
 
 	// Load up all the modules
 	fs.readdirSync('./commands/').forEach((file) => {
@@ -82,19 +82,19 @@ kuro.loadCommands = function() {
 		delete require.cache[require.resolve(`./commands/${file}`)]
 
 		try {
-			kuro.modules[name] = require(`./commands/${file}`)
-			if (kuro.modules[name].hasOwnProperty('init')) {
-				kuro.modules[name].init(kuro)
+			pbot.modules[name] = require(`./commands/${file}`)
+			if (pbot.modules[name].hasOwnProperty('init')) {
+				pbot.modules[name].init(pbot)
 			}
 
-			kuro.log(`Module ${name} is ready`)
+			pbot.log(`Module ${name} is ready`)
 		} catch (e) {
-			kuro.error(`Error in module ${name}:\n${e.stack}`)
+			pbot.error(`Error in module ${name}:\n${e.stack}`)
 		}
 	})
 }
 
-kuro.edit = function(msg, content, timeout = 3000) {
+pbot.edit = function(msg, content, timeout = 3000) {
 	if (timeout === 0) return msg.edit(content).catch(console.error)
 
 	return msg.edit(content).then(() => {
@@ -102,18 +102,18 @@ kuro.edit = function(msg, content, timeout = 3000) {
 	})
 }
 
-kuro.log = function(msg, color) {
-	if (color === undefined) console.log(`[Kuro]: ${msg}`)
-	else console.log(chalk[color](`[Kuro]: ${msg}`))
+pbot.log = function(msg, color) {
+	if (color === undefined) console.log(`[pbot]: ${msg}`)
+	else console.log(chalk[color](`[pbot]: ${msg}`))
 }
 
-kuro.error = function(msg) {
-	console.log(chalk.red(`[Kuro]: ${msg}`))
+pbot.error = function(msg) {
+	console.log(chalk.red(`[pbot]: ${msg}`))
 }
 
-kuro.log('Starting...', 'green')
-kuro.login(config.token)
+pbot.log('Starting...', 'green')
+pbot.login(config.token)
 
 process.on('unhandledRejection', err => {
-	kuro.error(`Uncaught Promise Error:\n${err.stack}`)
+	pbot.error(`Uncaught Promise Error:\n${err.stack}`)
 })

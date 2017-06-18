@@ -1,10 +1,10 @@
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/kanadeko/Kuro/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/pbanj/SandwichBot/master/LICENSE)
 
 ![heeeey](http://i.imgur.com/0tPwgV7.gif)
 
 
 
-### My own custom fork of kuro bot. Has custom commands, and the old way of doing stickers as im not a fan of the new way. this is more for my own personal use but feel free to use it if you want
+### My own custom fork of [Kuro bot](https://github.com/Pitu/Kuro). It has custom commands, and the old way of doing stickers as I'm not a fan of the new way. this is more for my own personal use but feel free to use it if you want. 
 
 an easy to use self bot that is shifting more and more into a framework while preserving its ease of use. It sits on top of [discord.js](https://github.com/hydrabolt/discord.js/).
 NodeJS version 6+ is ***REQUIRED***. [Installing Node.js](https://nodejs.org/en/download/package-manager/)
@@ -14,6 +14,11 @@ NodeJS version 6+ is ***REQUIRED***. [Installing Node.js](https://nodejs.org/en/
 
 ## Installing:
 clone the repo, `npm install` inside your `SandwichBot` folder, rename the `config.sample.json` to `config.json` and modify it's values with your data.
+
+
+## Running:
+type in `node pbot.js`
+
 
 ## Modules:
 This new update brings every command in the form of separate modules. Inside each module you can make up the stuff you want, and you can execute it by calling the module name without the extension. There's a sample module ready for you to duplicate called `base.js`.
@@ -37,7 +42,7 @@ If you want me to include a module you've made, send a PR with your stuff and I'
 
 ## Bundled modules
 
-Each module has detailed instructions inside their own files. Take a look at them for further details on how to use. there is also some i have added that are 3DS specific, they just output text.
+Each module has detailed instructions inside their own files. Take a look at them for further details on how to use. there is also some i have added that are 3DS specific, they just output text. all of the emote"gif" commands require nitro and/or being in my gotbrew server
 
 - `emote [emote]`
   Shows information about a custom emote.
@@ -64,7 +69,7 @@ Each module has detailed instructions inside their own files. Take a look at the
   Grabs the supplied amount of messages from chat and deletes those that are yours.
 
 - `reboot`
-  Reboots the Kuro. (Only works if using pm2|forever).
+  Reboots SandwichBot. (Only works if using [pm2](http://pm2.keymetrics.io/docs/usage/quick-start/#installation)).
 
 - `reload`
   Reloads all the modules (Useful when developing).
@@ -76,16 +81,16 @@ Each module has detailed instructions inside their own files. Take a look at the
   Sends a message using regional character emojis.
 
 - `s [name] | [add|del|ren]`
-  A module to manage stickers like Telegram does. Upload a sticker with a given name, and then make kuro paste it when you trigger the command.
+  A module to manage stickers like Telegram does. Upload a sticker with a given name, and then make SandwichBot paste it when you trigger the command.
 
 - `stats`
   Displays an embed with statistics.
 
 - `status [online|idle|dnd|offline]`
-  The status you want to appear as whenever you're offline, since using Kuro will make discord think you're always online.
+  The status you want to appear as whenever you're offline, since using SandwichBot will make discord think you're always online.
 
 - `tag [name] | [add|del|ren]`
-  Saves the given text into a tag for later usage. For example `tag add kuro https://github.com/kanadeko/Kuro` would print `https://github.com/kanadeko/Kuro` every time I do `tag kuro`
+  Saves the given text into a tag for later usage. For example `tag add SandwichBot https://github.com/pbanj/SandwichBot` would print `https://github.com/pbanj/SandwichBot` every time You do `tag SandwichBot`
 
 - `uptime`
   Displays how long the bot has been running.

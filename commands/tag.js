@@ -1,10 +1,10 @@
-let kuro
+let pbot
 let _msg
 let _table = 'tags'
 let _tags = {}
 
 exports.init = function(bot) {
-	kuro = bot
+	pbot = bot
 
 	// Create the table where we will be storing this module's data
 	bot.db.schema.createTableIfNotExists(_table, (table) => {
@@ -19,7 +19,7 @@ exports.init = function(bot) {
 			}
 		})
 	})
-	.catch((error) => { kuro.error(error) })
+	.catch((error) => { pbot.error(error) })
 }
 
 exports.run = function(msg, args) {
@@ -45,12 +45,12 @@ exports.run = function(msg, args) {
 
 exports.add = function(args) {
 	if (args[0] === undefined) {
-		kuro.edit(_msg, 'No name provided.')
+		pbot.edit(_msg, 'No name provided.')
 		return
 	}
 
 	if (args[1] === undefined) {
-		kuro.edit(_msg, 'No content provided.')
+		pbot.edit(_msg, 'No content provided.')
 		return
 	}
 
@@ -59,52 +59,52 @@ exports.add = function(args) {
 
 	// Is the name of the sticker already used?
 	if (_tags.hasOwnProperty(name)) {
-		kuro.edit(_msg, 'Name already in use.')
+		pbot.edit(_msg, 'Name already in use.')
 		return
 	}
 
-	kuro.db.table(_table).insert({
+	pbot.db.table(_table).insert({
 		name: name,
 		content: content
 	}).then(() => {
 		_tags[name] = content
-		kuro.edit(_msg, 'Tag added', 1000)
+		pbot.edit(_msg, 'Tag added', 1000)
 	})
-	.catch((error) => { kuro.error(error) })
+	.catch((error) => { pbot.error(error) })
 }
 
 exports.del = function(args) {
-	if (args[0] === undefined) return kuro.edit(_msg, 'No name provided.')
+	if (args[0] === undefined) return pbot.edit(_msg, 'No name provided.')
 
 	if (args[0] in _tags) {
-		kuro.db.table(_table)
+		pbot.db.table(_table)
 			.where('name', args[0])
 			.del()
 			.then(() => {
 				delete (_tags[args[0]])
-				return kuro.edit(_msg, 'The tag was removed.', 1000)
+				return pbot.edit(_msg, 'The tag was removed.', 1000)
 			})
-			.catch((e) => { return kuro.edit(_msg, `Error: \n${e}`, 0) })
+			.catch((e) => { return pbot.edit(_msg, `Error: \n${e}`, 0) })
 	} else {
-		return kuro.edit(_msg, 'There is no tag by that name.')
+		return pbot.edit(_msg, 'There is no tag by that name.')
 	}
 }
 
 exports.ren = function(args) {
-	if (args[0] === undefined) return kuro.edit(_msg, 'No source tag supplied.')
-	if (args[1] === undefined) return kuro.edit(_msg, 'No destination tag supplied.')
+	if (args[0] === undefined) return pbot.edit(_msg, 'No source tag supplied.')
+	if (args[1] === undefined) return pbot.edit(_msg, 'No destination tag supplied.')
 
 	if (args[0] in _tags) {
-		kuro.db.table(_table).where('name', args[0])
+		pbot.db.table(_table).where('name', args[0])
 			.update({ name: args[1] })
 			.then(() => {
 				_tags[args[1]] = _tags[args[0]]
 				delete (_tags[args[0]])
-				return kuro.edit(_msg, 'Tag renamed.', 1000)
+				return pbot.edit(_msg, 'Tag renamed.', 1000)
 			})
-			.catch((e) => { kuro.edit(_msg, `Error: \n${e}`, 0) })
+			.catch((e) => { pbot.edit(_msg, `Error: \n${e}`, 0) })
 	} else {
-		return kuro.edit(_msg, 'There is no tag by that name.')
+		return pbot.edit(_msg, 'There is no tag by that name.')
 	}
 }
 

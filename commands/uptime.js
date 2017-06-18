@@ -1,12 +1,12 @@
-let kuro
-exports.init = function(bot) { kuro = bot }
+let pbot
+exports.init = function(bot) { pbot = bot }
 
 exports.run = function(msg) {
 	msg.edit('', {
 		embed: {
-			title: 'Kurobot',
+			title: 'SanwichBot',
 			description: `Uptime: ${secondsToString(process.uptime())}`,
-			color: kuro.config.embedColor
+			color: pbot.config.embedColor
 		}
 	})
 }

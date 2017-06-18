@@ -1,6 +1,6 @@
-let kuro
-exports.init = function(bot) { kuro = bot }
+let pbot
+exports.init = function(bot) { pbot = bot }
 exports.run = function(msg) {
 	msg.delete()
-	kuro.loadCommands()
+	pbot.loadCommands()
 }
