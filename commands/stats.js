@@ -1,23 +1,23 @@
-let kuro
-exports.init = function(bot) { kuro = bot }
+let pbot
+exports.init = function(bot) { pbot = bot }
 
 exports.run = function(msg) {
 	let pjson = require('../package.json')
 
 	let version = `Wouldnt you like to know`
 	let uptime = secondsToString(process.uptime()).toString()
-	let modules = Object.keys(kuro.modules).length.toString()
+	let modules = Object.keys(pbot.modules).length.toString()
 	let memory = `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB`
 
 	// Showing the amount of stickers to demonstrate accessing other module's information
-	let stickers = kuro.modules.s.stickerCount().toString()
-	let tags = kuro.modules.tag.tagsCount().toString()
+	let stickers = pbot.modules.s.stickerCount().toString()
+	let tags = pbot.modules.tag.tagsCount().toString()
 
 	msg.edit('', {
 		embed: {
 			type: 'rich',
 			description: '[SandwichBot Stats](https://github.com/pbanj/SandwichBot)',
-			color: kuro.config.embedColor,
+			color: pbot.config.embedColor,
 			fields: [
 				{ name: '❯ Version', value: version, inline: true },
 				{ name: '❯ Ram usage', value: memory, inline: true },
