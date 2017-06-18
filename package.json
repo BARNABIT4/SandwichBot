@@ -1,15 +1,15 @@
 {
-  "name": "SanwichBot",
+  "name": "Kuro",
   "version": "4.2.0",
   "description": "Self bot with utilities",
-  "author": "pbot",
-  "main": "pbot.js",
+  "author": "kanadeko",
+  "main": "kuro.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pbanj/SandwichBot"
+    "url": "https://github.com/kanadeko/Kuro"
   },
   "bugs": {
-    "url": "https://github.com/pbanj/SandwichBot/issues"
+    "url": "https://github.com/kanadeko/Kuro/issues"
   },
   "engines": {
     "node": ">=6.0.0"

@@ -1,4 +1,4 @@
-let pbot
+let kuro
 let _msg
 let _stickers = {}
 let _table = 'stickers'
@@ -6,7 +6,7 @@ let assets = './files/stickers'
 const fs = require('fs')
 
 exports.init = function(bot){
-	pbot = bot
+	kuro = bot
 
 	// Create sticker folder if it doesn't exist
 	fs.existsSync(assets) || fs.mkdirSync(assets)
@@ -24,7 +24,7 @@ exports.init = function(bot){
 			}
 		})
 	})
-	.catch((error) => { pbot.error(error) })
+	.catch((error) => { kuro.error(error) })
 }
 
 exports.run = function(msg, args) {
@@ -69,7 +69,7 @@ exports.sendSticker = function(name) {
 
 exports.add = function(args) {
 	if (args[0] === undefined) {
-		pbot.edit(_msg, 'No name provided.')
+		kuro.edit(_msg, 'No name provided.')
 		return
 	}
 
@@ -77,7 +77,7 @@ exports.add = function(args) {
 
 	// Is the name of the sticker already used?
 	if (_stickers.hasOwnProperty(name)) {
-		pbot.edit(_msg, 'Name already in use.')
+		kuro.edit(_msg, 'Name already in use.')
 		return
 	}
 
@@ -100,7 +100,7 @@ exports.add = function(args) {
 
 	if (url === '') {
 		// Welp, couldn't figure out a url
-		pbot.edit(_msg, 'You didnt supply either a url nor attachment, or there was an error with the attachment.')
+		kuro.edit(_msg, 'You didnt supply either a url nor attachment, or there was an error with the attachment.')
 		return
 	}
 
@@ -113,7 +113,7 @@ exports.add = function(args) {
 	}
 
 	if (ext === undefined) {
-		pbot.edit(_msg, 'The file you are linking or trying to attach doesn\'t have an extension. pbot needs that thingy. pls fam')
+		kuro.edit(_msg, 'The file you are linking or trying to attach doesn\'t have an extension. Kuro needs that thingy. pls fam')
 		return
 	}
 
@@ -122,38 +122,38 @@ exports.add = function(args) {
 }
 
 exports.del = function(args) {
-	if (args[0] === undefined) return pbot.edit(_msg, 'No name provided.')
+	if (args[0] === undefined) return kuro.edit(_msg, 'No name provided.')
 
 	if (args[0] in _stickers) {
-		pbot.db.table(_table)
+		kuro.db.table(_table)
 			.where('name', args[0])
 			.del()
 			.then(() => {
 				delete (_stickers[args[0]])
-				return pbot.edit(_msg, 'The sticker was removed.', 1000)
+				return kuro.edit(_msg, 'The sticker was removed.', 1000)
 			})
-			.catch((e) => { pbot.edit(_msg, `Error: \n${e}`, 0) })
+			.catch((e) => { kuro.edit(_msg, `Error: \n${e}`, 0) })
 	} else {
-		return pbot.edit(_msg, 'There is no sticker by that name.')
+		return kuro.edit(_msg, 'There is no sticker by that name.')
 	}
 }
 
 exports.ren = function(args) {
-	if (args[0] === undefined) return pbot.edit(_msg, 'No source sticker supplied.')
-	if (args[1] === undefined) return pbot.edit(_msg, 'No destination sticker supplied.')
+	if (args[0] === undefined) return kuro.edit(_msg, 'No source sticker supplied.')
+	if (args[1] === undefined) return kuro.edit(_msg, 'No destination sticker supplied.')
 
 	if (args[0] in _stickers) {
-		pbot.db.table(_table)
+		kuro.db.table(_table)
 			.where('name', args[0])
 			.update({ name: args[1] })
 			.then(() => {
 				_stickers[args[1]] = _stickers[args[0]]
 				delete (_stickers[args[0]])
-				return pbot.edit(_msg, 'Sticker renamed.', 1000)
+				return kuro.edit(_msg, 'Sticker renamed.', 1000)
 			})
-			.catch((e) => { pbot.edit(_msg, `Error: \n${e}`, 0) })
+			.catch((e) => { kuro.edit(_msg, `Error: \n${e}`, 0) })
 	} else {
-		return pbot.edit(_msg, 'There is no sticker by that name.')
+		return kuro.edit(_msg, 'There is no sticker by that name.')
 	}
 }
 
@@ -166,28 +166,28 @@ exports.list = function() {
 	}
 
 	list = list.substr(0, list.length - 2)
-	return pbot.edit(_msg, `**__Stickers list__**\n\`\`\`\n${list}\n\`\`\``, 60000)
+	return kuro.edit(_msg, `**__Stickers list__**\n\`\`\`\n${list}\n\`\`\``, 60000)
 }
 
 exports.downloadImage = function(name, url, dest, ext) {
 	let saveFile = require('request')
 		.get(url)
 		.on('error', (err) => {
-			pbot.log(err)
+			kuro.log(err)
 			_msg.edit(`***Error:*** ${err}`)
 		})
 		.pipe(fs.createWriteStream(dest))
 
 	saveFile.on('finish', () => {
-		pbot.db.table(_table).insert({
+		kuro.db.table(_table).insert({
 			name: name,
 			file: `${name}.${ext}`
 		})
 		.then(() => {
 			_stickers[name] = `${name}.${ext}`
-			pbot.edit(_msg, 'Sticker added', 1000)
+			kuro.edit(_msg, 'Sticker added', 1000)
 		})
-		.catch((e) => { pbot.edit(_msg, `Error: \n${e}`, 0) })
+		.catch((e) => { kuro.edit(_msg, `Error: \n${e}`, 0) })
 	})
 }
 
@@ -196,7 +196,7 @@ exports.migrate = function() {
 		let oldfolder = './stickers'
 		let newfolder = assets
 
-		if (!fs.existsSync(oldfolder)) return pbot.edit(_msg, 'There doesn\'t seem to be an old sticker folder')
+		if (!fs.existsSync(oldfolder)) return kuro.edit(_msg, 'There doesn\'t seem to be an old sticker folder')
 
 		fs.readdir(oldfolder, (err, files) => { // eslint-disable-line
 			files.forEach(file => {
@@ -207,21 +207,21 @@ exports.migrate = function() {
 				if (!_stickers.hasOwnProperty(name)) {
 					copyFile(`${oldfolder}/${file}`, `${newfolder}/${file}`)
 
-					pbot.db.table(_table).insert({
+					kuro.db.table(_table).insert({
 						name: name,
 						file: file
 					})
 					.then(() => {
 						_stickers[name] = file
-						pbot.log(`Migrated ${file}`)
+						kuro.log(`Migrated ${file}`)
 					})
-					.catch((e) => pbot.error(e))
+					.catch((e) => kuro.error(e))
 				}
 			})
 		})
 		_msg.edit('Migration finished. Check console for logs.')
 	} catch (e) {
-		pbot.error(e)
+		kuro.error(e)
 	}
 }
 
@@ -247,7 +247,7 @@ function copyFile(source, target) {
 
 	function done(err) {
 		if (!cbCalled) {
-			if (err) pbot.error(err)
+			if (err) kuro.error(err)
 			cbCalled = true
 		}
 	}
