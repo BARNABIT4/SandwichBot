@@ -98,10 +98,24 @@ Each module has detailed instructions inside their own files. Take a look at the
   
 These are modules that edit a message to add the effect of animated emotes. You probably should update the emoji's name/id if you're not in my servers or the other needed servers.  
   
-- `bang` ![bang](http://i.imgur.com/OAv0c7R.gif)
+- `bang`
 
-- `kappa` ![kappa](http://i.imgur.com/pZc4GXm.gif) 
 
-- `eyes` ![eyes](http://i.imgur.com/UdzsAp6.gif)
+![bang](http://i.imgur.com/OAv0c7R.gif)
 
-- `kms` ![kms](http://i.imgur.com/wDsecRj.gif)
+
+- `kappa`
+
+
+![kappa](http://i.imgur.com/pZc4GXm.gif) 
+
+
+- `eyes`
+
+
+![eyes](http://i.imgur.com/UdzsAp6.gif)
+
+
+- `kms`
+
+![kms](http://i.imgur.com/wDsecRj.gif)
