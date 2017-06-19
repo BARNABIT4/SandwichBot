@@ -42,13 +42,10 @@ If you want me to include a module you've made, send a PR with your stuff and I'
 
 ## Bundled modules
 
-Each module has detailed instructions inside their own files. Take a look at them for further details on how to use. there is also some i have added that are 3DS specific, they just output text. all of the emote"gif" commands require nitro and/or being in my gotbrew server. the kappa command also requires you to be in [Thonk-Collection](https://discord.gg/DBK2sAK)
+Each module has detailed instructions inside their own files. Take a look at them for further details on how to use. there is also some i have added that are 3DS specific, they just output text. all of the emote"gif" commands require nitro and/or being in my servers. the kappa command also requires you to be in [Thonk-Collection](https://discord.gg/DBK2sAK)
 
 - `emote [emote]`
   Shows information about a custom emote.
-
-- `eyes`
-  A module that edits a message to add the effect of animated eyes. You probably should update the emoji name if you're not in my gotbrew server .
 
 - `flip <this is amazing>`
   sllɐqǝzɐɯɐ sı sıɥʇ
@@ -97,3 +94,14 @@ Each module has detailed instructions inside their own files. Take a look at the
 
 - `user <@user>`
   Displays information about the tagged user
+  
+  
+These are modules that edit a message to add the effect of animated emotes. You probably should update the emoji's name/id if you're not in my servers or the other needed servers.  
+  
+- `bang` ![bang](http://i.imgur.com/OAv0c7R.gif)
+
+- `kappa` ![kappa](http://i.imgur.com/pZc4GXm.gif) 
+
+- `eyes` ![eyes](http://i.imgur.com/UdzsAp6.gif)
+
+- `kms` ![kms](http://i.imgur.com/wDsecRj.gif)
