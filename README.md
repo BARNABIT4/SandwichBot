@@ -42,7 +42,7 @@ If you want me to include a module you've made, send a PR with your stuff and I'
 
 ## Bundled modules
 
-Each module has detailed instructions inside their own files. Take a look at them for further details on how to use. there is also some i have added that are 3DS specific, they just output text. all of the emote"gif" commands require nitro and/or being in my gotbrew server
+Each module has detailed instructions inside their own files. Take a look at them for further details on how to use. there is also some i have added that are 3DS specific, they just output text. all of the emote"gif" commands require nitro and/or being in my gotbrew server. the kappa command also requires you to be in [Thonk-Collection](https://discord.gg/DBK2sAK)
 
 - `emote [emote]`
   Shows information about a custom emote.
