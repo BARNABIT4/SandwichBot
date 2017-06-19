@@ -96,7 +96,7 @@ Each module has detailed instructions inside their own files. Take a look at the
   Displays information about the tagged user
   
   
-These are modules that edit a message to add the effect of animated emotes. You probably should update the emoji's name/id if you're not in my servers or the other needed servers.  
+These are modules that edit a message to add the effect of animated emotes. You probably should update the emoji's name/id if you're not in my servers or the other needed servers. They don't loop like the gifs. 
   
 - `bang`
 
