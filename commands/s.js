@@ -166,7 +166,7 @@ exports.list = function() {
 	}
 
 	list = list.substr(0, list.length - 2)
-	return pbot.edit(_msg, `**__Stickers list__**\n\`\`\`\n${list}\n\`\`\``, 60000)
+	return pbot.edit(_msg, `**__Stickers list__**\n\`\`\`\n${list}\n\`\`\``, 0)
 }
 
 exports.downloadImage = function(name, url, dest, ext) {
