@@ -71,9 +71,6 @@ Each module has detailed instructions inside their own files. Take a look at the
 - `reload`
   Reloads all the modules (Useful when developing).
 
-- `react [message]`
-  React to the last message with regional characters. a-z 0-9, no spaces.
-
 - `regional [message]`
   Sends a message using regional character emojis.
 
@@ -103,11 +100,6 @@ These are modules that edit a message to add the effect of animated emotes. You 
 
 ![bang](http://i.imgur.com/OAv0c7R.gif)
 
-
-- `kappa`
-
-
-![kappa](http://i.imgur.com/pZc4GXm.gif) 
 
 
 - `eyes`
