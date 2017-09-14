@@ -1,4 +1,4 @@
 exports.run = function(msg) {
 	msg.delete()
-	msg.channel.sendMessage('https://mkey.salthax.org/')
+	msg.channel.send('https://mkey.salthax.org/')
 }
